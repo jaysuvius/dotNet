@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MayPsDbModelStoreContainer" CdmEntityContainer="MayPsDbEntities">
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="MayPsDbModel.Address">
+        <MappingFragment StoreEntitySet="Addresses">
+          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="County" ColumnName="County" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="MayPsDbModel.Company">
+        <MappingFragment StoreEntitySet="Companies">
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CompanyType" ColumnName="CompanyType" />
+          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+          <ScalarProperty Name="PrimaryContactId" ColumnName="PrimaryContactId" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyTypes">
+      <EntityTypeMapping TypeName="MayPsDbModel.CompanyType">
+        <MappingFragment StoreEntitySet="CompanyTypes">
+          <ScalarProperty Name="CompanyTypeId" ColumnName="CompanyTypeId" />
+          <ScalarProperty Name="CompanyTypeDescription" ColumnName="CompanyTypeDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="MayPsDbModel.Contact">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleInitial" ColumnName="MiddleInitial" />
+          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="IsRealtor" ColumnName="IsRealtor" />
+          <ScalarProperty Name="RealtorLicense" ColumnName="RealtorLicense" />
+          <ScalarProperty Name="IsBroker" ColumnName="IsBroker" />
+          <ScalarProperty Name="IsTitle" ColumnName="IsTitle" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MultiUnitDetails">
+      <EntityTypeMapping TypeName="MayPsDbModel.MultiUnitDetail">
+        <MappingFragment StoreEntitySet="MultiUnitDetail">
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="UnitNumber" ColumnName="UnitNumber" />
+          <ScalarProperty Name="SqFt" ColumnName="SqFt" />
+          <ScalarProperty Name="BedroomCount" ColumnName="BedroomCount" />
+          <ScalarProperty Name="BathroomCount" ColumnName="BathroomCount" />
+          <ScalarProperty Name="RentAmount" ColumnName="RentAmount" />
+          <ScalarProperty Name="IsOccupied" ColumnName="IsOccupied" />
+          <ScalarProperty Name="SpecialFeatures" ColumnName="SpecialFeatures" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Properties">
+      <EntityTypeMapping TypeName="MayPsDbModel.Property">
+        <MappingFragment StoreEntitySet="Properties">
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+          <ScalarProperty Name="Style" ColumnName="Style" />
+          <ScalarProperty Name="SqFt" ColumnName="SqFt" />
+          <ScalarProperty Name="LotSize" ColumnName="LotSize" />
+          <ScalarProperty Name="IsMultiUnit" ColumnName="IsMultiUnit" />
+          <ScalarProperty Name="YearBuilt" ColumnName="YearBuilt" />
+          <ScalarProperty Name="HoaFees" ColumnName="HoaFees" />
+          <ScalarProperty Name="IsOccupied" ColumnName="IsOccupied" />
+          <ScalarProperty Name="OccupantId" ColumnName="OccupantId" />
+          <ScalarProperty Name="SpecialFeatures" ColumnName="SpecialFeatures" />
+          <ScalarProperty Name="RepairsNeeded" ColumnName="RepairsNeeded" />
+          <ScalarProperty Name="Upgrades" ColumnName="Upgrades" />
+          <ScalarProperty Name="IsListed" ColumnName="IsListed" />
+          <ScalarProperty Name="ListingDate" ColumnName="ListingDate" />
+          <ScalarProperty Name="HasOtherOffers" ColumnName="HasOtherOffers" />
+          <ScalarProperty Name="OfferAmount" ColumnName="OfferAmount" />
+          <ScalarProperty Name="Realtor" ColumnName="Realtor" />
+          <ScalarProperty Name="RealtorPhone" ColumnName="RealtorPhone" />
+          <ScalarProperty Name="ReasonForSelling" ColumnName="ReasonForSelling" />
+          <ScalarProperty Name="TimeFrame" ColumnName="TimeFrame" />
+          <ScalarProperty Name="NoSellContingency" ColumnName="NoSellContingency" />
+          <ScalarProperty Name="MortgageAmount" ColumnName="MortgageAmount" />
+          <ScalarProperty Name="HasLiens" ColumnName="HasLiens" />
+          <ScalarProperty Name="HasMultipleMortgages" ColumnName="HasMultipleMortgages" />
+          <ScalarProperty Name="IsPaymentCurrent" ColumnName="IsPaymentCurrent" />
+          <ScalarProperty Name="MonthsBehind" ColumnName="MonthsBehind" />
+          <ScalarProperty Name="AmountBehind" ColumnName="AmountBehind" />
+          <ScalarProperty Name="BackTaxes" ColumnName="BackTaxes" />
+          <ScalarProperty Name="OtherLeinAmount" ColumnName="OtherLeinAmount" />
+          <ScalarProperty Name="MonthlyPayment" ColumnName="MonthlyPayment" />
+          <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+          <ScalarProperty Name="InsuranceAmount" ColumnName="InsuranceAmount" />
+          <ScalarProperty Name="FirstInterestRate" ColumnName="FirstInterestRate" />
+          <ScalarProperty Name="SecondInterestRate" ColumnName="SecondInterestRate" />
+          <ScalarProperty Name="IsFixedRate" ColumnName="IsFixedRate" />
+          <ScalarProperty Name="PaymentPenalty" ColumnName="PaymentPenalty" />
+          <ScalarProperty Name="MortgageCompany1" ColumnName="MortgageCompany1" />
+          <ScalarProperty Name="MortgageCompany2" ColumnName="MortgageCompany2" />
+          <ScalarProperty Name="AskingPrice" ColumnName="AskingPrice" />
+          <ScalarProperty Name="IsFlexible" ColumnName="IsFlexible" />
+          <ScalarProperty Name="HowPriceDerived" ColumnName="HowPriceDerived" />
+          <ScalarProperty Name="BestPriceCashFastClose" ColumnName="BestPriceCashFastClose" />
+          <ScalarProperty Name="AbsoluteBottomPrice" ColumnName="AbsoluteBottomPrice" />
+          <ScalarProperty Name="WillSubjectTo" ColumnName="WillSubjectTo" />
+          <ScalarProperty Name="CanAcceptQuickly" ColumnName="CanAcceptQuickly" />
+          <ScalarProperty Name="EvaluatorId" ColumnName="EvaluatorId" />
+          <ScalarProperty Name="ARV" ColumnName="ARV" />
+          <ScalarProperty Name="AsIsValue" ColumnName="AsIsValue" />
+          <ScalarProperty Name="RepairCost" ColumnName="RepairCost" />
+          <ScalarProperty Name="LikelyPurchase" ColumnName="LikelyPurchase" />
+          <ScalarProperty Name="ExitStrategy" ColumnName="ExitStrategy" />
+          <ScalarProperty Name="Offer1" ColumnName="Offer1" />
+          <ScalarProperty Name="Offer2" ColumnName="Offer2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Repairs">
+      <EntityTypeMapping TypeName="MayPsDbModel.Repair">
+        <MappingFragment StoreEntitySet="Repairs">
+          <ScalarProperty Name="RepairId" ColumnName="RepairId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="RepairTypeId" ColumnName="RepairTypeId" />
+          <ScalarProperty Name="OtherDescription" ColumnName="OtherDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RepairTypes">
+      <EntityTypeMapping TypeName="MayPsDbModel.RepairType">
+        <MappingFragment StoreEntitySet="RepairTypes">
+          <ScalarProperty Name="RepairTypeId" ColumnName="RepairTypeId" />
+          <ScalarProperty Name="RepairTypeDescription" ColumnName="RepairTypeDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

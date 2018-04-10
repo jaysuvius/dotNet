@@ -1,0 +1,9 @@
+C:\Users\Dad\OneDrive\Documents\Code\DotNet\Calculator\Calculator\CalculatorUnitTests\bin\Debug\CalculatorUnitTests.dll
+C:\Users\Dad\OneDrive\Documents\Code\DotNet\Calculator\Calculator\CalculatorUnitTests\bin\Debug\CalculatorUnitTests.pdb
+C:\Users\Dad\OneDrive\Documents\Code\DotNet\Calculator\Calculator\CalculatorUnitTests\bin\Debug\Calculator.exe
+C:\Users\Dad\OneDrive\Documents\Code\DotNet\Calculator\Calculator\CalculatorUnitTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Dad\OneDrive\Documents\Code\DotNet\Calculator\Calculator\CalculatorUnitTests\bin\Debug\Calculator.pdb
+C:\Users\Dad\OneDrive\Documents\Code\DotNet\Calculator\Calculator\CalculatorUnitTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Users\Dad\OneDrive\Documents\Code\DotNet\Calculator\Calculator\CalculatorUnitTests\obj\Debug\CalculatorUnitTests.csprojResolveAssemblyReference.cache
+C:\Users\Dad\OneDrive\Documents\Code\DotNet\Calculator\Calculator\CalculatorUnitTests\obj\Debug\CalculatorUnitTests.dll
+C:\Users\Dad\OneDrive\Documents\Code\DotNet\Calculator\Calculator\CalculatorUnitTests\obj\Debug\CalculatorUnitTests.pdb

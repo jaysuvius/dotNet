@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MayPsDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="AddressId" />
+    </Key>
+    <Property Name="AddressId" Type="Guid" Nullable="false" />
+    <Property Name="Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="County" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyId" />
+    </Key>
+    <Property Name="CompanyId" Type="Guid" Nullable="false" />
+    <Property Name="CompanyName" Type="Guid" />
+    <Property Name="CompanyType" Type="Guid" />
+    <Property Name="AddressId" Type="Guid" />
+    <Property Name="PrimaryContactId" Type="Guid" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="FaxNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CompanyType">
+    <Key>
+      <PropertyRef Name="CompanyTypeId" />
+    </Key>
+    <Property Name="CompanyTypeId" Type="Guid" Nullable="false" />
+    <Property Name="CompanyTypeDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="Guid" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MiddleInitial" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="AddressId" Type="Guid" />
+    <Property Name="HomePhone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="MobilePhone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="WorkPhone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsRealtor" Type="Boolean" />
+    <Property Name="RealtorLicense" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsBroker" Type="Boolean" />
+    <Property Name="IsTitle" Type="Boolean" />
+    <Property Name="CompanyId" Type="Guid" />
+  </EntityType>
+  <EntityType Name="MultiUnitDetail">
+    <Key>
+      <PropertyRef Name="UnitId" />
+    </Key>
+    <Property Name="UnitId" Type="Guid" Nullable="false" />
+    <Property Name="PropertyId" Type="Guid" />
+    <Property Name="UnitNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SqFt" Type="Int32" />
+    <Property Name="BedroomCount" Type="Int32" />
+    <Property Name="BathroomCount" Type="Int32" />
+    <Property Name="RentAmount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="IsOccupied" Type="Boolean" />
+    <Property Name="SpecialFeatures" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Property">
+    <Key>
+      <PropertyRef Name="PropertyId" />
+    </Key>
+    <Property Name="PropertyId" Type="Guid" Nullable="false" />
+    <Property Name="AddressId" Type="Guid" />
+    <Property Name="Style" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SqFt" Type="Int32" />
+    <Property Name="LotSize" Type="Int32" />
+    <Property Name="IsMultiUnit" Type="Boolean" />
+    <Property Name="YearBuilt" Type="Int32" />
+    <Property Name="HoaFees" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="IsOccupied" Type="Boolean" />
+    <Property Name="OccupantId" Type="Boolean" />
+    <Property Name="SpecialFeatures" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RepairsNeeded" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Upgrades" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsListed" Type="Boolean" />
+    <Property Name="ListingDate" Type="DateTime" Precision="0" />
+    <Property Name="HasOtherOffers" Type="Boolean" />
+    <Property Name="OfferAmount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Realtor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RealtorPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ReasonForSelling" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TimeFrame" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NoSellContingency" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MortgageAmount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="HasLiens" Type="Boolean" />
+    <Property Name="HasMultipleMortgages" Type="Boolean" />
+    <Property Name="IsPaymentCurrent" Type="Boolean" />
+    <Property Name="MonthsBehind" Type="Boolean" />
+    <Property Name="AmountBehind" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="BackTaxes" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OtherLeinAmount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="MonthlyPayment" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TaxAmount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="InsuranceAmount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="FirstInterestRate" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="SecondInterestRate" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="IsFixedRate" Type="Boolean" />
+    <Property Name="PaymentPenalty" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="MortgageCompany1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MortgageCompany2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AskingPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="IsFlexible" Type="Boolean" />
+    <Property Name="HowPriceDerived" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BestPriceCashFastClose" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AbsoluteBottomPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="WillSubjectTo" Type="Boolean" />
+    <Property Name="CanAcceptQuickly" Type="Boolean" />
+    <Property Name="EvaluatorId" Type="Guid" />
+    <Property Name="ARV" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AsIsValue" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="RepairCost" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="LikelyPurchase" Type="Boolean" />
+    <Property Name="ExitStrategy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Offer1" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Offer2" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Repair">
+    <Key>
+      <PropertyRef Name="RepairId" />
+    </Key>
+    <Property Name="RepairId" Type="Guid" Nullable="false" />
+    <Property Name="PropertyId" Type="Guid" />
+    <Property Name="RepairTypeId" Type="Guid" />
+    <Property Name="OtherDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RepairType">
+    <Key>
+      <PropertyRef Name="RepairTypeId" />
+    </Key>
+    <Property Name="RepairTypeId" Type="Guid" Nullable="false" />
+    <Property Name="RepairTypeDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="MayPsDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Addresses" EntityType="Self.Address" />
+    <EntitySet Name="Companies" EntityType="Self.Company" />
+    <EntitySet Name="CompanyTypes" EntityType="Self.CompanyType" />
+    <EntitySet Name="Contacts" EntityType="Self.Contact" />
+    <EntitySet Name="MultiUnitDetails" EntityType="Self.MultiUnitDetail" />
+    <EntitySet Name="Properties" EntityType="Self.Property" />
+    <EntitySet Name="Repairs" EntityType="Self.Repair" />
+    <EntitySet Name="RepairTypes" EntityType="Self.RepairType" />
+  </EntityContainer>
+</Schema>

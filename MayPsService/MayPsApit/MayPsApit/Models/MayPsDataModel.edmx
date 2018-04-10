@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MayPsDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Addresses">
+          <Key>
+            <PropertyRef Name="AddressId" />
+          </Key>
+          <Property Name="AddressId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Address1" Type="varchar" MaxLength="50" />
+          <Property Name="Address2" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="2" />
+          <Property Name="Zip" Type="varchar" MaxLength="10" />
+          <Property Name="County" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CompanyName" Type="uniqueidentifier" />
+          <Property Name="CompanyType" Type="uniqueidentifier" />
+          <Property Name="AddressId" Type="uniqueidentifier" />
+          <Property Name="PrimaryContactId" Type="uniqueidentifier" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="10" />
+          <Property Name="FaxNumber" Type="varchar" MaxLength="10" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CompanyTypes">
+          <Key>
+            <PropertyRef Name="CompanyTypeId" />
+          </Key>
+          <Property Name="CompanyTypeId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CompanyTypeDescription" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="ContactId" />
+          </Key>
+          <Property Name="ContactId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="MiddleInitial" Type="varchar" MaxLength="1" />
+          <Property Name="AddressId" Type="uniqueidentifier" />
+          <Property Name="HomePhone" Type="varchar" MaxLength="12" />
+          <Property Name="MobilePhone" Type="varchar" MaxLength="12" />
+          <Property Name="WorkPhone" Type="varchar" MaxLength="12" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
+          <Property Name="IsRealtor" Type="bit" />
+          <Property Name="RealtorLicense" Type="varchar" MaxLength="50" />
+          <Property Name="IsBroker" Type="bit" />
+          <Property Name="IsTitle" Type="bit" />
+          <Property Name="CompanyId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="MultiUnitDetail">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="UnitId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PropertyId" Type="uniqueidentifier" />
+          <Property Name="UnitNumber" Type="varchar" MaxLength="50" />
+          <Property Name="SqFt" Type="int" />
+          <Property Name="BedroomCount" Type="int" />
+          <Property Name="BathroomCount" Type="int" />
+          <Property Name="RentAmount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="IsOccupied" Type="bit" />
+          <Property Name="SpecialFeatures" Type="text" />
+        </EntityType>
+        <EntityType Name="Properties">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+          </Key>
+          <Property Name="PropertyId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AddressId" Type="uniqueidentifier" />
+          <Property Name="Style" Type="varchar" MaxLength="255" />
+          <Property Name="SqFt" Type="int" />
+          <Property Name="LotSize" Type="int" />
+          <Property Name="IsMultiUnit" Type="bit" />
+          <Property Name="YearBuilt" Type="int" />
+          <Property Name="HoaFees" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="IsOccupied" Type="bit" />
+          <Property Name="OccupantId" Type="bit" />
+          <Property Name="SpecialFeatures" Type="text" />
+          <Property Name="RepairsNeeded" Type="text" />
+          <Property Name="Upgrades" Type="text" />
+          <Property Name="IsListed" Type="bit" />
+          <Property Name="ListingDate" Type="date" />
+          <Property Name="HasOtherOffers" Type="bit" />
+          <Property Name="OfferAmount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Realtor" Type="varchar" MaxLength="50" />
+          <Property Name="RealtorPhone" Type="varchar" MaxLength="10" />
+          <Property Name="ReasonForSelling" Type="text" />
+          <Property Name="TimeFrame" Type="varchar" MaxLength="50" />
+          <Property Name="NoSellContingency" Type="text" />
+          <Property Name="MortgageAmount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="HasLiens" Type="bit" />
+          <Property Name="HasMultipleMortgages" Type="bit" />
+          <Property Name="IsPaymentCurrent" Type="bit" />
+          <Property Name="MonthsBehind" Type="bit" />
+          <Property Name="AmountBehind" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="BackTaxes" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OtherLeinAmount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="MonthlyPayment" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TaxAmount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="InsuranceAmount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="FirstInterestRate" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="SecondInterestRate" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="IsFixedRate" Type="bit" />
+          <Property Name="PaymentPenalty" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="MortgageCompany1" Type="varchar" MaxLength="50" />
+          <Property Name="MortgageCompany2" Type="varchar" MaxLength="50" />
+          <Property Name="AskingPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="IsFlexible" Type="bit" />
+          <Property Name="HowPriceDerived" Type="varchar" MaxLength="50" />
+          <Property Name="BestPriceCashFastClose" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AbsoluteBottomPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="WillSubjectTo" Type="bit" />
+          <Property Name="CanAcceptQuickly" Type="bit" />
+          <Property Name="EvaluatorId" Type="uniqueidentifier" />
+          <Property Name="ARV" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AsIsValue" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="RepairCost" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="LikelyPurchase" Type="bit" />
+          <Property Name="ExitStrategy" Type="varchar" MaxLength="50" />
+          <Property Name="Offer1" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Offer2" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Repairs">
+          <Key>
+            <PropertyRef Name="RepairId" />
+          </Key>
+          <Property Name="RepairId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PropertyId" Type="uniqueidentifier" />
+          <Property Name="RepairTypeId" Type="uniqueidentifier" />
+          <Property Name="OtherDescription" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RepairTypes">
+          <Key>
+            <PropertyRef Name="RepairTypeId" />
+          </Key>
+          <Property Name="RepairTypeId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RepairTypeDescription" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="MayPsDbModelStoreContainer">
+          <EntitySet Name="Addresses" EntityType="Self.Addresses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyTypes" EntityType="Self.CompanyTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MultiUnitDetail" EntityType="Self.MultiUnitDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Properties" EntityType="Self.Properties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Repairs" EntityType="Self.Repairs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RepairTypes" EntityType="Self.RepairTypes" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MayPsDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressId" />
+          </Key>
+          <Property Name="AddressId" Type="Guid" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="County" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="Guid" Nullable="false" />
+          <Property Name="CompanyName" Type="Guid" />
+          <Property Name="CompanyType" Type="Guid" />
+          <Property Name="AddressId" Type="Guid" />
+          <Property Name="PrimaryContactId" Type="Guid" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FaxNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CompanyType">
+          <Key>
+            <PropertyRef Name="CompanyTypeId" />
+          </Key>
+          <Property Name="CompanyTypeId" Type="Guid" Nullable="false" />
+          <Property Name="CompanyTypeDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactId" />
+          </Key>
+          <Property Name="ContactId" Type="Guid" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleInitial" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="AddressId" Type="Guid" />
+          <Property Name="HomePhone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="MobilePhone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="WorkPhone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsRealtor" Type="Boolean" />
+          <Property Name="RealtorLicense" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsBroker" Type="Boolean" />
+          <Property Name="IsTitle" Type="Boolean" />
+          <Property Name="CompanyId" Type="Guid" />
+        </EntityType>
+        <EntityType Name="MultiUnitDetail">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="UnitId" Type="Guid" Nullable="false" />
+          <Property Name="PropertyId" Type="Guid" />
+          <Property Name="UnitNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SqFt" Type="Int32" />
+          <Property Name="BedroomCount" Type="Int32" />
+          <Property Name="BathroomCount" Type="Int32" />
+          <Property Name="RentAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IsOccupied" Type="Boolean" />
+          <Property Name="SpecialFeatures" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Property">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+          </Key>
+          <Property Name="PropertyId" Type="Guid" Nullable="false" />
+          <Property Name="AddressId" Type="Guid" />
+          <Property Name="Style" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SqFt" Type="Int32" />
+          <Property Name="LotSize" Type="Int32" />
+          <Property Name="IsMultiUnit" Type="Boolean" />
+          <Property Name="YearBuilt" Type="Int32" />
+          <Property Name="HoaFees" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IsOccupied" Type="Boolean" />
+          <Property Name="OccupantId" Type="Boolean" />
+          <Property Name="SpecialFeatures" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RepairsNeeded" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Upgrades" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsListed" Type="Boolean" />
+          <Property Name="ListingDate" Type="DateTime" Precision="0" />
+          <Property Name="HasOtherOffers" Type="Boolean" />
+          <Property Name="OfferAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Realtor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RealtorPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ReasonForSelling" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TimeFrame" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NoSellContingency" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MortgageAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="HasLiens" Type="Boolean" />
+          <Property Name="HasMultipleMortgages" Type="Boolean" />
+          <Property Name="IsPaymentCurrent" Type="Boolean" />
+          <Property Name="MonthsBehind" Type="Boolean" />
+          <Property Name="AmountBehind" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="BackTaxes" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OtherLeinAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MonthlyPayment" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TaxAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="InsuranceAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FirstInterestRate" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="SecondInterestRate" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IsFixedRate" Type="Boolean" />
+          <Property Name="PaymentPenalty" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MortgageCompany1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MortgageCompany2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AskingPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IsFlexible" Type="Boolean" />
+          <Property Name="HowPriceDerived" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BestPriceCashFastClose" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AbsoluteBottomPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="WillSubjectTo" Type="Boolean" />
+          <Property Name="CanAcceptQuickly" Type="Boolean" />
+          <Property Name="EvaluatorId" Type="Guid" />
+          <Property Name="ARV" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AsIsValue" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="RepairCost" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="LikelyPurchase" Type="Boolean" />
+          <Property Name="ExitStrategy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Offer1" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Offer2" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Repair">
+          <Key>
+            <PropertyRef Name="RepairId" />
+          </Key>
+          <Property Name="RepairId" Type="Guid" Nullable="false" />
+          <Property Name="PropertyId" Type="Guid" />
+          <Property Name="RepairTypeId" Type="Guid" />
+          <Property Name="OtherDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="RepairType">
+          <Key>
+            <PropertyRef Name="RepairTypeId" />
+          </Key>
+          <Property Name="RepairTypeId" Type="Guid" Nullable="false" />
+          <Property Name="RepairTypeDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="MayPsDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="Self.Address" />
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="CompanyTypes" EntityType="Self.CompanyType" />
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="MultiUnitDetails" EntityType="Self.MultiUnitDetail" />
+          <EntitySet Name="Properties" EntityType="Self.Property" />
+          <EntitySet Name="Repairs" EntityType="Self.Repair" />
+          <EntitySet Name="RepairTypes" EntityType="Self.RepairType" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MayPsDbModelStoreContainer" CdmEntityContainer="MayPsDbEntities">
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="MayPsDbModel.Address">
+              <MappingFragment StoreEntitySet="Addresses">
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="County" ColumnName="County" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="MayPsDbModel.Company">
+              <MappingFragment StoreEntitySet="Companies">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyType" ColumnName="CompanyType" />
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+                <ScalarProperty Name="PrimaryContactId" ColumnName="PrimaryContactId" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyTypes">
+            <EntityTypeMapping TypeName="MayPsDbModel.CompanyType">
+              <MappingFragment StoreEntitySet="CompanyTypes">
+                <ScalarProperty Name="CompanyTypeId" ColumnName="CompanyTypeId" />
+                <ScalarProperty Name="CompanyTypeDescription" ColumnName="CompanyTypeDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="MayPsDbModel.Contact">
+              <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleInitial" ColumnName="MiddleInitial" />
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+                <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="IsRealtor" ColumnName="IsRealtor" />
+                <ScalarProperty Name="RealtorLicense" ColumnName="RealtorLicense" />
+                <ScalarProperty Name="IsBroker" ColumnName="IsBroker" />
+                <ScalarProperty Name="IsTitle" ColumnName="IsTitle" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MultiUnitDetails">
+            <EntityTypeMapping TypeName="MayPsDbModel.MultiUnitDetail">
+              <MappingFragment StoreEntitySet="MultiUnitDetail">
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="UnitNumber" ColumnName="UnitNumber" />
+                <ScalarProperty Name="SqFt" ColumnName="SqFt" />
+                <ScalarProperty Name="BedroomCount" ColumnName="BedroomCount" />
+                <ScalarProperty Name="BathroomCount" ColumnName="BathroomCount" />
+                <ScalarProperty Name="RentAmount" ColumnName="RentAmount" />
+                <ScalarProperty Name="IsOccupied" ColumnName="IsOccupied" />
+                <ScalarProperty Name="SpecialFeatures" ColumnName="SpecialFeatures" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Properties">
+            <EntityTypeMapping TypeName="MayPsDbModel.Property">
+              <MappingFragment StoreEntitySet="Properties">
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+                <ScalarProperty Name="Style" ColumnName="Style" />
+                <ScalarProperty Name="SqFt" ColumnName="SqFt" />
+                <ScalarProperty Name="LotSize" ColumnName="LotSize" />
+                <ScalarProperty Name="IsMultiUnit" ColumnName="IsMultiUnit" />
+                <ScalarProperty Name="YearBuilt" ColumnName="YearBuilt" />
+                <ScalarProperty Name="HoaFees" ColumnName="HoaFees" />
+                <ScalarProperty Name="IsOccupied" ColumnName="IsOccupied" />
+                <ScalarProperty Name="OccupantId" ColumnName="OccupantId" />
+                <ScalarProperty Name="SpecialFeatures" ColumnName="SpecialFeatures" />
+                <ScalarProperty Name="RepairsNeeded" ColumnName="RepairsNeeded" />
+                <ScalarProperty Name="Upgrades" ColumnName="Upgrades" />
+                <ScalarProperty Name="IsListed" ColumnName="IsListed" />
+                <ScalarProperty Name="ListingDate" ColumnName="ListingDate" />
+                <ScalarProperty Name="HasOtherOffers" ColumnName="HasOtherOffers" />
+                <ScalarProperty Name="OfferAmount" ColumnName="OfferAmount" />
+                <ScalarProperty Name="Realtor" ColumnName="Realtor" />
+                <ScalarProperty Name="RealtorPhone" ColumnName="RealtorPhone" />
+                <ScalarProperty Name="ReasonForSelling" ColumnName="ReasonForSelling" />
+                <ScalarProperty Name="TimeFrame" ColumnName="TimeFrame" />
+                <ScalarProperty Name="NoSellContingency" ColumnName="NoSellContingency" />
+                <ScalarProperty Name="MortgageAmount" ColumnName="MortgageAmount" />
+                <ScalarProperty Name="HasLiens" ColumnName="HasLiens" />
+                <ScalarProperty Name="HasMultipleMortgages" ColumnName="HasMultipleMortgages" />
+                <ScalarProperty Name="IsPaymentCurrent" ColumnName="IsPaymentCurrent" />
+                <ScalarProperty Name="MonthsBehind" ColumnName="MonthsBehind" />
+                <ScalarProperty Name="AmountBehind" ColumnName="AmountBehind" />
+                <ScalarProperty Name="BackTaxes" ColumnName="BackTaxes" />
+                <ScalarProperty Name="OtherLeinAmount" ColumnName="OtherLeinAmount" />
+                <ScalarProperty Name="MonthlyPayment" ColumnName="MonthlyPayment" />
+                <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+                <ScalarProperty Name="InsuranceAmount" ColumnName="InsuranceAmount" />
+                <ScalarProperty Name="FirstInterestRate" ColumnName="FirstInterestRate" />
+                <ScalarProperty Name="SecondInterestRate" ColumnName="SecondInterestRate" />
+                <ScalarProperty Name="IsFixedRate" ColumnName="IsFixedRate" />
+                <ScalarProperty Name="PaymentPenalty" ColumnName="PaymentPenalty" />
+                <ScalarProperty Name="MortgageCompany1" ColumnName="MortgageCompany1" />
+                <ScalarProperty Name="MortgageCompany2" ColumnName="MortgageCompany2" />
+                <ScalarProperty Name="AskingPrice" ColumnName="AskingPrice" />
+                <ScalarProperty Name="IsFlexible" ColumnName="IsFlexible" />
+                <ScalarProperty Name="HowPriceDerived" ColumnName="HowPriceDerived" />
+                <ScalarProperty Name="BestPriceCashFastClose" ColumnName="BestPriceCashFastClose" />
+                <ScalarProperty Name="AbsoluteBottomPrice" ColumnName="AbsoluteBottomPrice" />
+                <ScalarProperty Name="WillSubjectTo" ColumnName="WillSubjectTo" />
+                <ScalarProperty Name="CanAcceptQuickly" ColumnName="CanAcceptQuickly" />
+                <ScalarProperty Name="EvaluatorId" ColumnName="EvaluatorId" />
+                <ScalarProperty Name="ARV" ColumnName="ARV" />
+                <ScalarProperty Name="AsIsValue" ColumnName="AsIsValue" />
+                <ScalarProperty Name="RepairCost" ColumnName="RepairCost" />
+                <ScalarProperty Name="LikelyPurchase" ColumnName="LikelyPurchase" />
+                <ScalarProperty Name="ExitStrategy" ColumnName="ExitStrategy" />
+                <ScalarProperty Name="Offer1" ColumnName="Offer1" />
+                <ScalarProperty Name="Offer2" ColumnName="Offer2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Repairs">
+            <EntityTypeMapping TypeName="MayPsDbModel.Repair">
+              <MappingFragment StoreEntitySet="Repairs">
+                <ScalarProperty Name="RepairId" ColumnName="RepairId" />
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="RepairTypeId" ColumnName="RepairTypeId" />
+                <ScalarProperty Name="OtherDescription" ColumnName="OtherDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RepairTypes">
+            <EntityTypeMapping TypeName="MayPsDbModel.RepairType">
+              <MappingFragment StoreEntitySet="RepairTypes">
+                <ScalarProperty Name="RepairTypeId" ColumnName="RepairTypeId" />
+                <ScalarProperty Name="RepairTypeDescription" ColumnName="RepairTypeDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
